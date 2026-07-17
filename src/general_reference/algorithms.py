@@ -1,6 +1,7 @@
 """Reference implementations of frequently used algorithms.
 
 Each function favours explicit behaviour, useful type hints and documented complexity.
+Where helpful, both a traditional baseline and an optimised implementation are provided.
 """
 
 from __future__ import annotations
@@ -50,6 +51,34 @@ def merge_sort(values: Iterable[T]) -> list[T]:
     merged.extend(left[left_index:])
     merged.extend(right[right_index:])
     return merged
+
+
+def longest_increasing_subsequence_dp(values: Sequence[T]) -> tuple[int, list[T]]:
+    """Return one longest strictly increasing subsequence using classic DP.
+
+    This transparent baseline compares each item with every earlier item. It is useful
+    for teaching and for validating faster implementations. Time complexity is O(n²)
+    and space complexity is O(n).
+    """
+    if not values:
+        return 0, []
+
+    lengths = [1] * len(values)
+    predecessors = [-1] * len(values)
+
+    for current in range(len(values)):
+        for previous in range(current):
+            if values[previous] < values[current] and lengths[previous] + 1 > lengths[current]:
+                lengths[current] = lengths[previous] + 1
+                predecessors[current] = previous
+
+    current = max(range(len(values)), key=lengths.__getitem__)
+    sequence: list[T] = []
+    while current != -1:
+        sequence.append(values[current])
+        current = predecessors[current]
+    sequence.reverse()
+    return len(sequence), sequence
 
 
 def longest_increasing_subsequence(values: Sequence[T]) -> tuple[int, list[T]]:
