@@ -1,0 +1,50 @@
+name: Bug report
+description: Report incorrect behaviour in a reference implementation or example
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for helping improve the repository. Please provide a minimal reproducible example and remove private or sensitive data.
+  - type: input
+    id: component
+    attributes:
+      label: Affected component
+      description: File, function, notebook or documentation section involved
+      placeholder: general_reference.graphs.dijkstra_shortest_path
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: Problem description
+      description: Explain what happened and why it appears incorrect.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Minimal reproducible example
+      description: Include the smallest code sample and input needed to reproduce the problem.
+      render: python
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behaviour
+    validations:
+      required: true
+  - type: input
+    id: python
+    attributes:
+      label: Python version
+      placeholder: 3.12.4
+    validations:
+      required: true
+  - type: textarea
+    id: context
+    attributes:
+      label: Additional context
+      description: Include traceback, platform details or relevant complexity concerns.
