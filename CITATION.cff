@@ -1,0 +1,19 @@
+cff-version: 1.2.0
+message: "If you use this repository in research, teaching, or technical work, please cite it using the metadata below."
+title: "General: Practical Python, Statistics and Machine Learning"
+type: software
+authors:
+  - family-names: Singla
+    given-names: Saurav
+repository-code: "https://github.com/sauravsingla/General"
+url: "https://github.com/sauravsingla/General"
+license: MIT
+version: 1.0.0
+date-released: 2026-07-17
+keywords:
+  - algorithms
+  - statistics
+  - machine-learning
+  - data-science
+  - python
+  - reference-implementations
