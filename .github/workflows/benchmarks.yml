@@ -1,0 +1,64 @@
+name: benchmarks
+
+on:
+  push:
+    branches: [master]
+    paths:
+      - "src/**"
+      - "benchmarks/**"
+      - "pyproject.toml"
+      - ".github/workflows/benchmarks.yml"
+  pull_request:
+    branches: [master]
+    paths:
+      - "src/**"
+      - "benchmarks/**"
+      - "pyproject.toml"
+      - ".github/workflows/benchmarks.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  benchmark:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.10", "3.11", "3.12"]
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: pip
+
+      - name: Install benchmark dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -e ".[datasets,dev]"
+
+      - name: Lint benchmark suite
+        run: ruff check benchmarks
+
+      - name: Generate leaderboard
+        run: |
+          python benchmarks/run_benchmarks.py \
+            --repeats 15 \
+            --markdown benchmark-results/leaderboard-py${{ matrix.python-version }}.md \
+            --json benchmark-results/results-py${{ matrix.python-version }}.json
+
+      - name: Add leaderboard to job summary
+        run: cat benchmark-results/leaderboard-py${{ matrix.python-version }}.md >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Upload benchmark leaderboard
+        uses: actions/upload-artifact@v4
+        with:
+          name: benchmark-leaderboard-python-${{ matrix.python-version }}
+          path: benchmark-results/
+          retention-days: 90
