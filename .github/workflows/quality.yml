@@ -33,5 +33,5 @@ jobs:
       - name: Lint
         run: ruff check src tests
 
-      - name: Test
-        run: pytest --cov=general_reference --cov-report=term-missing
+      - name: Test with coverage
+        run: pytest --cov=general_reference --cov-report=term-missing --cov-fail-under=95
