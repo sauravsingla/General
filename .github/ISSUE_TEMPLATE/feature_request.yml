@@ -1,0 +1,38 @@
+name: New solution or improvement
+description: Propose a new reference problem, algorithm, statistical method or modern alternative
+title: "[Proposal]: "
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem to solve
+      description: Describe the practical or educational problem and intended users.
+    validations:
+      required: true
+  - type: textarea
+    id: baseline
+    attributes:
+      label: Traditional baseline
+      description: Explain the transparent baseline approach, including expected time and space complexity.
+    validations:
+      required: true
+  - type: textarea
+    id: modern
+    attributes:
+      label: Optimised or modern approach
+      description: Explain the improved approach, its assumptions and trade-offs.
+    validations:
+      required: true
+  - type: textarea
+    id: validation
+    attributes:
+      label: Validation plan
+      description: List correctness tests, edge cases and comparisons against the baseline.
+    validations:
+      required: true
+  - type: textarea
+    id: references
+    attributes:
+      label: References
+      description: Add primary documentation, papers or textbooks where applicable.
