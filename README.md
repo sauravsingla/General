@@ -1,11 +1,15 @@
 # General: Practical Python, Statistics and Machine Learning
 
-A curated collection of notebooks and reusable Python implementations for solving common problems in statistics, algorithms, data science and machine learning.
+[![Quality](https://github.com/sauravsingla/General/actions/workflows/quality.yml/badge.svg)](https://github.com/sauravsingla/General/actions/workflows/quality.yml)
+[![Python 3.10+](https://img.shields.io/badge/python-3.10%2B-blue.svg)](https://www.python.org/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-The repository keeps the original exploratory notebooks and adds production-style reference code so readers can compare:
+A curated collection of notebooks and reusable Python implementations for common problems in algorithms, statistics, data science and machine learning.
+
+The repository preserves the original exploratory notebooks while adding production-style reference code so readers can compare:
 
 - **Traditional approaches** — transparent, dependency-light methods that explain the fundamentals.
-- **Modern approaches** — typed, reusable implementations with validation, tests and scalable patterns.
+- **Modern approaches** — typed, reusable implementations with validation, tests and scalable complexity.
 - **Notebook exploration** — visual experiments that make the underlying ideas easier to understand.
 
 ## Repository map
@@ -14,17 +18,21 @@ The repository keeps the original exploratory notebooks and adds production-styl
 |---|---|
 | Root notebooks | Original Colab experiments and worked examples |
 | `src/general_reference/` | Reusable, documented Python implementations |
-| `tests/` | Behavioural tests and edge-case coverage |
-| `docs/solutions.md` | Problem-to-solution index with complexity notes |
+| `tests/` | Behavioural, numerical and edge-case coverage |
+| `docs/solutions.md` | Problem-to-solution catalogue with complexity and selection guidance |
+| `.github/workflows/` | Automated linting, testing and coverage checks |
 
-## Featured topics
+## Reference implementations
 
-- Probability distributions and the Central Limit Theorem
-- Ranking and response scoring
-- Search, sorting and dynamic programming
-- Numerical stability and vectorised computation
-- Data validation and reproducible experiments
-- Modern Python design: type hints, dataclasses and testable APIs
+| Domain | Traditional reference | Optimised or robust reference |
+|---|---|---|
+| Increasing subsequence | O(n²) dynamic programming | O(n log n) patience sorting |
+| Unweighted graph routing | Breadth-first search | Shortest-path reconstruction |
+| Weighted graph routing | — | Heap-based Dijkstra with validation |
+| Mean and variance | Batch calculation | Welford streaming statistics |
+| Searching | Linear reasoning baseline | Standard-library binary search |
+
+See the complete [`solution catalogue`](docs/solutions.md) for assumptions, complexity and selection guidance.
 
 ## Quick start
 
@@ -32,33 +40,54 @@ The repository keeps the original exploratory notebooks and adds production-styl
 git clone https://github.com/sauravsingla/General.git
 cd General
 python -m pip install -e ".[dev]"
-pytest
+ruff check src tests
+pytest --cov=general_reference --cov-report=term-missing
 ```
 
-Python 3.10 or newer is recommended.
+Python 3.10 or newer is supported.
 
-## Using the reference implementations
+## Examples
 
 ```python
-from general_reference.algorithms import binary_search, longest_increasing_subsequence
-from general_reference.statistics import online_mean_variance
+from general_reference import (
+    breadth_first_path,
+    dijkstra_shortest_path,
+    longest_increasing_subsequence,
+    longest_increasing_subsequence_dp,
+    online_mean_variance,
+)
 
-position = binary_search([1, 4, 7, 10], 7)
-length, sequence = longest_increasing_subsequence([3, 1, 5, 2, 6, 4, 9])
-summary = online_mean_variance([2.0, 4.0, 4.0, 4.0, 5.0, 5.0, 7.0, 9.0])
+values = [3, 1, 5, 2, 6, 4, 9]
+baseline_length, baseline_sequence = longest_increasing_subsequence_dp(values)
+fast_length, fast_sequence = longest_increasing_subsequence(values)
+
+route = breadth_first_path(
+    {"A": ["B", "C"], "B": ["D"], "C": ["D"]},
+    "A",
+    "D",
+)
+
+cost, weighted_route = dijkstra_shortest_path(
+    {"A": [("B", 4), ("C", 1)], "C": [("B", 2)]},
+    "A",
+    "B",
+)
+
+summary = online_mean_variance([2.0, 4.0, 4.0, 5.0, 7.0, 9.0])
 ```
 
-## Design principles
+## Quality principles
 
-1. **Correctness before cleverness.** Every public function validates assumptions and documents edge cases.
-2. **Explain the trade-off.** Implementations include time and space complexity where useful.
-3. **Reproducibility.** Random examples use explicit seeds or generators.
-4. **Readable APIs.** Solutions are designed for learning and reuse, not just one-off execution.
-5. **Backward preservation.** Existing notebooks remain available as historical learning material.
+1. **Correctness before cleverness.** Public functions document assumptions and edge cases.
+2. **Baseline before optimisation.** Faster solutions can be checked against transparent references.
+3. **Complexity is explicit.** Time and space trade-offs are included with each implementation.
+4. **Reproducibility matters.** Random examples should use explicit local generators and seeds.
+5. **Generic code is tested.** Algorithms support reusable inputs rather than one fixed demonstration.
+6. **Historical work is preserved.** Existing notebooks remain available as learning material.
 
-## Quality checks
+## Project standards
 
-The project uses `pytest` for tests, `ruff` for linting and GitHub Actions for automated validation.
+The project uses `pytest`, coverage enforcement, `ruff`, type hints and GitHub Actions across Python 3.10, 3.11 and 3.12. Security and safe-use expectations are documented in [`SECURITY.md`](SECURITY.md).
 
 ## Contributing
 
@@ -66,4 +95,4 @@ Contributions are welcome when they add a clearly explained problem, a correct i
 
 ## License
 
-This repository is provided for educational and reference use. See [`LICENSE`](LICENSE) for terms.
+Released under the [MIT License](LICENSE).
