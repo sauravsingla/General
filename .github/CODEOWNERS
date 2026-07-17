@@ -1,0 +1,10 @@
+# Default reviewer for repository changes
+* @sauravsingla
+
+# Production-style reference package and tests
+/src/ @sauravsingla
+/tests/ @sauravsingla
+
+# Automation and project governance
+/.github/ @sauravsingla
+/pyproject.toml @sauravsingla
