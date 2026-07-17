@@ -2,7 +2,7 @@
 
 This catalogue connects each problem to a transparent baseline and, where useful, a more scalable implementation.
 
-## Algorithms
+## Core algorithms
 
 | Problem | Reference | Approach | Time | Space | Best use |
 |---|---|---|---:|---:|---|
@@ -11,12 +11,37 @@ This catalogue connects each problem to a transparent baseline and, where useful
 | Longest increasing subsequence | `longest_increasing_subsequence_dp` | Traditional dynamic programming | O(n²) | O(n) | Teaching, small inputs and correctness comparison |
 | Longest increasing subsequence | `longest_increasing_subsequence` | Patience sorting with reconstruction | O(n log n) | O(n) | Larger sequences and production-style use |
 
+## Dynamic programming
+
+| Problem | Reference | Approach | Time | Space | Output |
+|---|---|---|---:|---:|---|
+| 0/1 knapsack | `zero_one_knapsack` | Capacity-indexed dynamic programming | O(nC) | O(nC) | Optimal value and selected item indices |
+| Edit distance | `edit_distance` | Space-optimised Levenshtein recurrence | O(nm) | O(min(n, m)) | Minimum insertion, deletion and substitution count |
+| Matrix-chain multiplication | `matrix_chain_order` | Interval dynamic programming | O(n³) | O(n²) | Minimum scalar operations and parenthesization |
+
 ## Graphs
 
 | Problem | Reference | Approach | Time | Space | Assumptions |
 |---|---|---|---:|---:|---|
 | Shortest unweighted path | `breadth_first_path` | Breadth-first search | O(V + E) | O(V) | All edges have equal cost |
 | Shortest weighted path | `dijkstra_shortest_path` | Heap-based Dijkstra | O((V + E) log V) | O(V) | Edge weights are finite and non-negative |
+| Dependency ordering | `topological_sort` | Kahn's algorithm | O(V + E) | O(V) | Directed graph must be acyclic |
+| Minimum spanning forest | `kruskal_minimum_spanning_forest` | Kruskal plus union-find | O(E log E) | O(V) | Undirected weighted graph |
+
+## String processing
+
+| Problem | Reference | Approach | Time | Space | Notes |
+|---|---|---|---:|---:|---|
+| Prefix-border analysis | `prefix_function` | KMP prefix table | O(n) | O(n) | Building block for efficient matching |
+| Exact substring matching | `kmp_search` | Knuth-Morris-Pratt | O(n + m) | O(m) | Includes overlapping matches |
+| Prefix matching at every position | `z_function` | Z algorithm | O(n) | O(n) | Useful for pattern matching and periodicity |
+
+## Data structures
+
+| Problem | Reference | Operations | Time | Space | Best use |
+|---|---|---|---:|---:|---|
+| Dynamic connectivity | `DisjointSet` | add, find, union, connected | Amortized O(α(n)) | O(n) | Components, Kruskal and clustering |
+| Prefix and range sums | `FenwickTree` | point add, prefix sum, range sum | O(log n) | O(n) | Frequently updated numeric sequences |
 
 ## Streaming statistics
 
