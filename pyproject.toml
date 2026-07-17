@@ -22,10 +22,16 @@ classifiers = [
 ]
 
 [project.optional-dependencies]
+datasets = [
+  "networkx>=3.2",
+  "scikit-learn>=1.4",
+]
 dev = [
+  "networkx>=3.2",
   "pytest>=8.0",
   "pytest-cov>=5.0",
   "ruff>=0.5",
+  "scikit-learn>=1.4",
 ]
 
 [tool.setuptools.packages.find]
