@@ -1,6 +1,7 @@
 # General: Practical Python, Statistics and Machine Learning
 
 [![Quality](https://github.com/sauravsingla/General/actions/workflows/quality.yml/badge.svg)](https://github.com/sauravsingla/General/actions/workflows/quality.yml)
+[![Benchmarks](https://github.com/sauravsingla/General/actions/workflows/benchmarks.yml/badge.svg)](https://github.com/sauravsingla/General/actions/workflows/benchmarks.yml)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10%2B-blue.svg)](https://www.python.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
@@ -11,6 +12,7 @@ The repository preserves the original exploratory notebooks while adding product
 - **Traditional approaches** — transparent, dependency-light methods that explain the fundamentals.
 - **Modern approaches** — typed, reusable implementations with validation, tests and scalable complexity.
 - **Notebook exploration** — visual experiments that make the underlying ideas easier to understand.
+- **Measured performance** — reproducible leaderboards across supported Python versions.
 
 ## Repository map
 
@@ -19,8 +21,10 @@ The repository preserves the original exploratory notebooks while adding product
 | Root notebooks | Original Colab experiments and worked examples |
 | `src/general_reference/` | Reusable, documented Python implementations |
 | `tests/` | Behavioural, numerical and edge-case coverage |
+| `benchmarks/` | Reproducible performance leaderboard generator |
 | `docs/solutions.md` | Problem-to-solution catalogue with complexity and selection guidance |
-| `.github/workflows/` | Automated linting, testing and coverage checks |
+| `docs/benchmark_leaderboard.md` | Benchmark methodology, datasets and reproduction guide |
+| `.github/workflows/` | Automated linting, testing, coverage and benchmark runs |
 
 ## Reference implementations
 
@@ -33,6 +37,15 @@ The repository preserves the original exploratory notebooks while adding product
 | Searching | Linear reasoning baseline | Standard-library binary search |
 
 See the complete [`solution catalogue`](docs/solutions.md) for assumptions, complexity and selection guidance.
+
+## Benchmark leaderboard
+
+The dedicated [`benchmark leaderboard`](docs/benchmark_leaderboard.md) measures the reusable algorithms on fixed synthetic inputs and bundled open datasets. GitHub Actions publishes ranked Markdown tables and machine-readable JSON for Python 3.10, 3.11 and 3.12.
+
+```bash
+python -m pip install -e ".[datasets,dev]"
+python benchmarks/run_benchmarks.py --repeats 15
+```
 
 ## Quick start
 
