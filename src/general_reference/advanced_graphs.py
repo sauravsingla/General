@@ -19,7 +19,7 @@ def topological_sort(graph: Mapping[Node, Iterable[Node]]) -> list[Node]:
     """
     adjacency = {node: list(neighbours) for node, neighbours in graph.items()}
     indegree: dict[Node, int] = {node: 0 for node in adjacency}
-    for neighbours in adjacency.values():
+    for neighbours in list(adjacency.values()):
         for neighbour in neighbours:
             indegree.setdefault(neighbour, 0)
             adjacency.setdefault(neighbour, [])
@@ -49,12 +49,13 @@ def kruskal_minimum_spanning_forest(
     O(E log E), dominated by sorting the edges.
     """
     node_list = list(dict.fromkeys(nodes))
+    node_set = set(node_list)
     disjoint_set = DisjointSet(node_list)
     selected: list[tuple[Node, Node, float]] = []
     total_weight = 0.0
 
     for weight, first, second in sorted(edges, key=lambda edge: edge[0]):
-        if first not in disjoint_set._parent or second not in disjoint_set._parent:
+        if first not in node_set or second not in node_set:
             raise ValueError("every edge endpoint must appear in nodes")
         if disjoint_set.union(first, second):
             selected.append((first, second, float(weight)))
