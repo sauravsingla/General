@@ -5,6 +5,7 @@ from __future__ import annotations
 from collections import deque
 from collections.abc import Hashable, Mapping, Sequence
 from heapq import heappop, heappush
+from itertools import count
 from math import isfinite
 from typing import TypeVar
 
@@ -47,10 +48,11 @@ def dijkstra_shortest_path(
     """
     distances: dict[Node, float] = {start: 0.0}
     predecessor: dict[Node, Node | None] = {start: None}
-    heap: list[tuple[float, Node]] = [(0.0, start)]
+    tie_breaker = count()
+    heap: list[tuple[float, int, Node]] = [(0.0, next(tie_breaker), start)]
 
     while heap:
-        distance, node = heappop(heap)
+        distance, _, node = heappop(heap)
         if distance != distances.get(node):
             continue
         if node == goal:
@@ -65,7 +67,7 @@ def dijkstra_shortest_path(
             if candidate < distances.get(neighbour, float("inf")):
                 distances[neighbour] = candidate
                 predecessor[neighbour] = node
-                heappush(heap, (candidate, neighbour))
+                heappush(heap, (candidate, next(tie_breaker), neighbour))
 
     return float("inf"), []
 
