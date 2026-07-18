@@ -10,9 +10,11 @@ A practical, tested, and reproducible Python reference for algorithms, data stru
 
 The repository combines **transparent teaching baselines**, **optimised implementations**, **open-dataset validation**, a **reproducible benchmark leaderboard**, and selected technical articles by **Saurav Singla**. It is designed for students, interview preparation, instructors, contributors, and practitioners who want more than isolated code snippets.
 
-## Deep learning and machine-learning articles
+## Publications and conceptual guides
 
-These articles provide the conceptual companion to the repository's educational and implementation-first approach.
+The following articles provide conceptual companions to the repository's educational and implementation-first approach.
+
+### Deep learning and machine learning
 
 | Topic | Article | Published | Main concepts |
 |---|---|---:|---|
@@ -21,12 +23,22 @@ These articles provide the conceptual companion to the repository's educational 
 | Model families | [What are the differences between generative and discriminative machine-learning models?](https://medium.com/data-science/the-insiders-guide-to-generative-and-discriminative-machine-learning-models-34d5791d53d3) | 12 Sep 2020 | Joint versus conditional modelling, classification, data generation, assumptions, and model-selection trade-offs |
 | ML automation | [What is AutoML and Why is it important?](https://medium.com/data-science/what-is-automl-6ddf27040f27) | 31 Oct 2020 | Automated model selection, hyperparameter tuning, pipeline automation, model interpretation, deployment, and Neural Architecture Search |
 
+### Statistics and hypothesis testing
+
+| Platform | Article | Published | Main concepts |
+|---|---|---:|---|
+| HackerNoon | [The Importance of Hypothesis Testing](https://hackernoon.com/the-importance-of-hypothesis-testing-0l2d3tcy) | 5 Oct 2020 | Statistical hypotheses, simulation-based reasoning, testing assumptions, significance, and avoiding statistical fallacies |
+| Medium / TDS Archive | [Hypothesis Test for Real Problems](https://medium.com/data-science/hypothesis-test-for-real-problems-64aafe17c1ad) | 10 Aug 2020 | Null and alternative hypotheses, population-versus-sample reasoning, statistical decisions, and applied hypothesis testing |
+
+The two hypothesis-testing articles offer complementary perspectives: the Medium article introduces the method through practical problems, while the HackerNoon publication broadens the discussion to the importance, interpretation, and responsible use of statistical tests.
+
 ### Suggested learning sequence
 
-1. Start with **generative versus discriminative models** to understand the major modelling viewpoints.
-2. Study **dropout** to understand overfitting and regularisation in neural networks.
-3. Study **batch normalisation** to understand optimisation stability and efficient deep-network training.
-4. Finish with **AutoML** to see how model selection, tuning, evaluation, interpretation, and deployment can be automated.
+1. Begin with **Hypothesis Test for Real Problems** and **The Importance of Hypothesis Testing** to understand evidence-based statistical decisions.
+2. Study **generative versus discriminative models** to understand the major modelling viewpoints.
+3. Study **dropout** to understand overfitting and regularisation in neural networks.
+4. Study **batch normalisation** to understand optimisation stability and efficient deep-network training.
+5. Finish with **AutoML** to see how model selection, tuning, evaluation, interpretation, and deployment can be automated.
 
 The articles explain the ideas; this repository reinforces the same engineering habits through explicit assumptions, baseline implementations, tests, complexity analysis, reproducible experiments, and open-dataset validation.
 
@@ -43,6 +55,7 @@ The articles explain the ideas; this repository reinforces the same engineering 
 | Python 3.10–3.12 CI | ✅ |
 | Educational notebooks preserved | ✅ |
 | Published technical articles linked | ✅ |
+| Cross-platform publication record | ✅ |
 | Contribution, citation, and security guidance | ✅ |
 
 ## Start here
@@ -52,7 +65,7 @@ The articles explain the ideas; this repository reinforces the same engineering 
 - Looking for an implementation: browse the [solution catalogue](docs/solutions.md).
 - Understanding the project: read the [architecture guide](docs/architecture.md).
 - Reproducing results: see [open-dataset validation](docs/open-dataset-validation.md) and the [benchmark leaderboard](docs/benchmark_leaderboard.md).
-- Studying machine-learning foundations: use the four-article learning sequence above.
+- Studying statistics and machine-learning foundations: follow the publication learning sequence above.
 - Troubleshooting: check the [FAQ](docs/faq.md).
 
 ## Algorithm coverage
@@ -178,6 +191,7 @@ The goal is not to memorise code; it is to understand why a solution is correct 
 5. **Examples are not substitutes for tests.** Correctness, education, and performance are separated.
 6. **Notebooks and maintained APIs have different roles.** Exploratory history is preserved without weakening package standards.
 7. **Concepts should connect to implementation.** Articles, examples, tests, and benchmarks should reinforce one another.
+8. **Statistical claims require evidence.** Hypotheses, assumptions, uncertainty, and interpretation should be made explicit.
 
 ## Documentation
 
@@ -193,7 +207,7 @@ The goal is not to memorise code; it is to understand why a solution is correct 
 
 ## Search topics
 
-`algorithms` · `data-structures` · `deep-learning` · `batch-normalization` · `dropout` · `generative-models` · `discriminative-models` · `automl` · `neural-architecture-search` · `machine-learning` · `python` · `reproducible-research`
+`algorithms` · `data-structures` · `statistics` · `hypothesis-testing` · `statistical-significance` · `deep-learning` · `batch-normalization` · `dropout` · `generative-models` · `discriminative-models` · `automl` · `neural-architecture-search` · `machine-learning` · `python` · `reproducible-research`
 
 ## Contributing
 
@@ -203,7 +217,7 @@ Read [CONTRIBUTING.md](CONTRIBUTING.md), [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md
 
 ## Citation
 
-Academic or instructional use can cite the repository using [CITATION.cff](CITATION.cff). Please pin a release or commit when reproducibility matters. The linked Medium articles should be cited separately when their conceptual explanations are used.
+Academic or instructional use can cite the repository using [CITATION.cff](CITATION.cff). Please pin a release or commit when reproducibility matters. The linked Medium and HackerNoon articles should be cited separately when their conceptual explanations are used.
 
 ## License
 
