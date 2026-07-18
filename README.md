@@ -4,10 +4,31 @@
 [![Benchmarks](https://github.com/sauravsingla/General/actions/workflows/benchmarks.yml/badge.svg)](https://github.com/sauravsingla/General/actions/workflows/benchmarks.yml)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10%2B-blue.svg)](https://www.python.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![CITATION.cff](https://img.shields.io/badge/citation-CFF-blue.svg)](CITATION.cff)
 
-A practical, tested, and reproducible Python reference for algorithms, data structures, graph methods, string processing, dynamic programming, and streaming statistics.
+A practical, tested, and reproducible Python reference for algorithms, data structures, graph methods, string processing, dynamic programming, streaming statistics, and foundational machine-learning concepts.
 
-The repository combines **transparent teaching baselines**, **optimised implementations**, **open-dataset validation**, and a **reproducible benchmark leaderboard**. It is designed for students, interview preparation, instructors, contributors, and practitioners who want more than isolated code snippets.
+The repository combines **transparent teaching baselines**, **optimised implementations**, **open-dataset validation**, a **reproducible benchmark leaderboard**, and selected technical articles by **Saurav Singla**. It is designed for students, interview preparation, instructors, contributors, and practitioners who want more than isolated code snippets.
+
+## Deep learning and machine-learning articles
+
+These articles provide the conceptual companion to the repository's educational and implementation-first approach.
+
+| Topic | Article | Published | Main concepts |
+|---|---|---:|---|
+| Training stability | [Why is Batch Normalization useful in Deep Neural Networks?](https://medium.com/data-science/batch-normalisation-in-deep-neural-network-ce65dd9e8dbf) | 29 Jul 2020 | Mini-batch normalisation, stable optimisation, faster convergence, regularisation, and deep-network training |
+| Regularisation | [Why Dropout is so effective in Deep Neural Network](https://medium.com/data-science/introduction-to-dropout-to-regularize-deep-neural-network-8e9d6b1d4386) | 2 Aug 2020 | Overfitting, stochastic unit removal, model robustness, regularisation trade-offs, and implementation guidance |
+| Model families | [What are the differences between generative and discriminative machine-learning models?](https://medium.com/data-science/the-insiders-guide-to-generative-and-discriminative-machine-learning-models-34d5791d53d3) | 12 Sep 2020 | Joint versus conditional modelling, classification, data generation, assumptions, and model-selection trade-offs |
+| ML automation | [What is AutoML and Why is it important?](https://medium.com/data-science/what-is-automl-6ddf27040f27) | 31 Oct 2020 | Automated model selection, hyperparameter tuning, pipeline automation, model interpretation, deployment, and Neural Architecture Search |
+
+### Suggested learning sequence
+
+1. Start with **generative versus discriminative models** to understand the major modelling viewpoints.
+2. Study **dropout** to understand overfitting and regularisation in neural networks.
+3. Study **batch normalisation** to understand optimisation stability and efficient deep-network training.
+4. Finish with **AutoML** to see how model selection, tuning, evaluation, interpretation, and deployment can be automated.
+
+The articles explain the ideas; this repository reinforces the same engineering habits through explicit assumptions, baseline implementations, tests, complexity analysis, reproducible experiments, and open-dataset validation.
 
 ## Why this repository
 
@@ -21,7 +42,8 @@ The repository combines **transparent teaching baselines**, **optimised implemen
 | Reproducible benchmark leaderboard | ✅ |
 | Python 3.10–3.12 CI | ✅ |
 | Educational notebooks preserved | ✅ |
-| Contribution and security guidance | ✅ |
+| Published technical articles linked | ✅ |
+| Contribution, citation, and security guidance | ✅ |
 
 ## Start here
 
@@ -30,6 +52,7 @@ The repository combines **transparent teaching baselines**, **optimised implemen
 - Looking for an implementation: browse the [solution catalogue](docs/solutions.md).
 - Understanding the project: read the [architecture guide](docs/architecture.md).
 - Reproducing results: see [open-dataset validation](docs/open-dataset-validation.md) and the [benchmark leaderboard](docs/benchmark_leaderboard.md).
+- Studying machine-learning foundations: use the four-article learning sequence above.
 - Troubleshooting: check the [FAQ](docs/faq.md).
 
 ## Algorithm coverage
@@ -154,6 +177,7 @@ The goal is not to memorise code; it is to understand why a solution is correct 
 4. **Reproducibility matters.** Benchmarks use fixed inputs and report their environment.
 5. **Examples are not substitutes for tests.** Correctness, education, and performance are separated.
 6. **Notebooks and maintained APIs have different roles.** Exploratory history is preserved without weakening package standards.
+7. **Concepts should connect to implementation.** Articles, examples, tests, and benchmarks should reinforce one another.
 
 ## Documentation
 
@@ -167,6 +191,10 @@ The goal is not to memorise code; it is to understand why a solution is correct 
 | [Benchmark leaderboard](docs/benchmark_leaderboard.md) | Measurement methodology and CI artifacts |
 | [FAQ](docs/faq.md) | Common questions and troubleshooting |
 
+## Search topics
+
+`algorithms` · `data-structures` · `deep-learning` · `batch-normalization` · `dropout` · `generative-models` · `discriminative-models` · `automl` · `neural-architecture-search` · `machine-learning` · `python` · `reproducible-research`
+
 ## Contributing
 
 Contributions are welcome when they add a clearly scoped problem, a correct and typed implementation, explicit complexity, meaningful tests, and documentation. Benchmarks should be added only for useful comparisons or regression risks.
@@ -175,7 +203,7 @@ Read [CONTRIBUTING.md](CONTRIBUTING.md), [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md
 
 ## Citation
 
-Academic or instructional use can cite the repository using [CITATION.cff](CITATION.cff). Please pin a release or commit when reproducibility matters.
+Academic or instructional use can cite the repository using [CITATION.cff](CITATION.cff). Please pin a release or commit when reproducibility matters. The linked Medium articles should be cited separately when their conceptual explanations are used.
 
 ## License
 
