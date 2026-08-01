@@ -57,7 +57,7 @@ jobs:
         run: cat benchmark-results/leaderboard-py${{ matrix.python-version }}.md >> "$GITHUB_STEP_SUMMARY"
 
       - name: Upload benchmark leaderboard
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: benchmark-leaderboard-python-${{ matrix.python-version }}
           path: benchmark-results/
